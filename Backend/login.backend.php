@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
     if (empty($username) || empty($password)) {
-        header("Location: ../login.php?error=All fields are required");
+        header("Location: ../login.php?error=1");
         exit;
     }
 
@@ -33,8 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../dashboard.php");
             exit;
         } else {
-            // Redirect back to the login page with an error
-            header("Location: ../login.php?error=Invalid username or password");
+            // Redirect to login page with error message
+            header("Location: ../login.php?error=2");
             exit;
         }
     } catch (PDOException $e) {

@@ -19,6 +19,20 @@
                 loginForm.style.display = "block";
             }
         }
+
+       
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+            if (error) {
+                if (error == 1) {
+                    alert('All fields are required');
+                } else if (error == 2) {
+                    alert('Invalid username or password');
+                }
+            }
+        }
+    
     </script>
 </head>
 <body>
