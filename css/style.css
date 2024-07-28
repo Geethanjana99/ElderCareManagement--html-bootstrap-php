@@ -4,7 +4,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f0f2f5;
-    background: url('images/e.jpg') no-repeat center center fixed; /* Path to your image */
     background-size: cover;
 }
 

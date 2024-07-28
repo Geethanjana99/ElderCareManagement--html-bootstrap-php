@@ -28,7 +28,7 @@
 
         <section class="login-section">
             <h2>Login</h2>
-            <form id="login-form" action="login.php" method="post">
+            <form id="login-form" action="Backend/login.backend.php" method="post">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
                 <label for="password">Password:</label>
@@ -39,9 +39,9 @@
         </section>
         <section class="register-section" id="register-form" style="display:none;">
             <h2>Register</h2>
-            <form action="register.php" method="post">
-                <label for="nameini">Name </label>
-                <input type="text" id="nameini" name="nameini" required>
+            <form action="Backend/register.backend.php" method="post">
+                <label for="name">Name </label>
+                <input type="text" id="name" name="name" required>
                 <label for="nic">NIC:</label>
                 <input type="text" id="nic" name="nic" required>
                 <label for="age">Age:</label>
@@ -61,4 +61,3 @@
    <?php include 'Components/footer.php'; ?>
 </body>
 </html>
-

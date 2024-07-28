@@ -1,14 +1,17 @@
 <?php
-session_start(); // Start the session at the very beginning
+session_start();
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Include your database connection script
-    require 'db_connection.php'; // Assume this file contains your PDO connection $pdo
+    require 'DBConnect.php'; 
 
-    // Retrieve user input
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    // Retrieve and sanitize user input
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
+    if (empty($username) || empty($password)) {
+        header("Location: ../login.php?error=All fields are required");
+        exit;
+    }
 
     try {
         // Prepare SQL statement to prevent SQL injection
@@ -27,15 +30,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $user['id']; // Assuming there's an 'id' field
 
             // Redirect to a protected page
-            header("Location: dashboard.php");
+            header("Location: ../dashboard.php");
             exit;
         } else {
             // Redirect back to the login page with an error
-            header("Location: login.html?error=Invalid username or password");
+            header("Location: ../login.php?error=Invalid username or password");
             exit;
         }
     } catch (PDOException $e) {
         die("Error: " . $e->getMessage());
     }
+} else {
+    // Redirect if the form was not submitted using POST
+    header("Location: ../login.php");
+    exit;
 }
 ?>
