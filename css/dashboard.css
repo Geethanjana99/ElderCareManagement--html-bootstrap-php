@@ -1,0 +1,31 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+}
+
+.sidebar {
+    background-color: grey;
+    height: 100vh;
+    
+}
+
+.sidebar .nav-link {
+    margin: 10px;
+    color: black;
+}
+
+.sidebar .nav-link.active {
+    background-color: #007bff;
+}
+
+.main {
+    padding: 20px;
+}
+
+.card {
+    margin: 10px 0;
+}
+
+.card .card-title {
+    color: #007bff;
+}
