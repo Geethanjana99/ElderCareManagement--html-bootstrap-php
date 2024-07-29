@@ -1,0 +1,4 @@
+.carousel-image {
+    height: 100vh; /* Full viewport height */
+    object-fit: cover; /* Ensure the image covers the element */
+}
