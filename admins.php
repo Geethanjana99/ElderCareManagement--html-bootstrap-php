@@ -6,77 +6,40 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: login.php");
     exit;
 }
-
-require 'Backend/get_count.php'; // Adjust path as necessary
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Elderly Care Management System</title>
+    <title>Registered Elders - Elderly Care Management System</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/navigation.css">
 
     <style>
         .sidelink1 {
             background-color: darkcyan;
         }
-
-
-        .buttonlog1 {
-            font-weight: bold;
-            color: black;
-            border: 2px solid darkblue;
-        }
-
-        .buttonlog1:hover {
-            background-color: darkblue;
-        }
-
-        .card {
-            color: white;
-            background-color: #00796b;
-        }
-
-
-        .card:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .cardtitle {
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .moreinfo {
-            background-color: darkcyan;
-        }
-    </style>
+        </style>
 </head>
 
 <body>
     <?php include 'Components/navigation.php'; ?>
-
     <div class="container-fluid">
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link sidelink1" href="dashboard.php">Dashboard</a>
+                            <a class="nav-link" href="dashboard.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sidelink" href="users.php">Elders</a>
+                            <a class="nav-link" href="users.php">Elders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sidelink" href="admins.php">Admins</a>
+                            <a class="nav-link sidelink1" href="admins.php">Admins</a>
                         </li>
                     </ul>
                 </div>
@@ -85,46 +48,40 @@ require 'Backend/get_count.php'; // Adjust path as necessary
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Dashboard</h1>
+                    <h1 class="h2">Registered Elders</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary buttonlog1"
-                                data-toggle="modal" data-target="#registerModal">Register User</button>
-                            <a href="AddAdmin/addadmin.php" class="btn btn-sm btn-outline-secondary buttonlog1">Add
-                                Admin</a>
-                            <a href="Backend/logout.php" class="btn btn-sm btn-outline-secondary buttonlog1">LogOut</a>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal"
+                                data-target="#registerModal">Register User</button>
+                            <a href="Backend/logout.php" class="btn btn-sm btn-outline-secondary">LogOut</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <h5 class="cardtitle">Total Services</h5>
-                                <p class="card-text">4</p>
-                                <a href="#" class="btn btn-primary moreinfo">More info</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <h5 class="cardtitle">Senior Citizen</h5>
-                                <p class="card-text"><?php echo htmlspecialchars($elderCount); ?></p>
-                                <a href="users.php" class="btn btn-primary moreinfo">More info</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <h5 class="cardtitle">Admins</h5>
-                                <p class="card-text"><?php echo htmlspecialchars($adminCount); ?></p>
-                                <a href="admins.php" class="btn btn-primary moreinfo">More info</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // Include the fetch data script
+                            require 'Backend/fetch_data.php'; // Adjust path as necessary
+                            
+                            if (!empty($result1)) {
+                                foreach ($result1 as $row) {
+                                    echo "<tr><td>" . htmlspecialchars($row["id"]) . "</td><td>" . htmlspecialchars($row["username"]) . "</td><td>" . htmlspecialchars($row["created_at"]) . "</td></tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='5'>No records found</td></tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </main>
         </div>
@@ -159,10 +116,19 @@ require 'Backend/get_count.php'; // Adjust path as necessary
                             <label for="contactno">Contact Number:</label>
                             <input type="text" class="form-control" id="contactno" name="contactno" required>
                         </div>
-                        <!-- Removed Username and Password fields -->
+                        <div class="form-group">
+                            <label for="reg-username">Username:</label>
+                            <input type="text" class="form-control" id="reg-username" name="reg-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password">Password:</label>
+                            <input type="password" class="form-control" id="reg-password" name="reg-password" required>
+                        </div>
                         <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
@@ -170,13 +136,7 @@ require 'Backend/get_count.php'; // Adjust path as necessary
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        // Check for success query parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('success') && urlParams.get('success') === '1') {
-            alert('Admin added successfully!');
-        }
-    </script>
+    <?php include 'Components/footer.php'; ?>
 </body>
 
 </html>

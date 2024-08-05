@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElderCare Pro - Comprehensive Elder Care Management System</title>
     <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/navigation.css">
     
     <body>
     <?php include 'Components/navigation.php'; ?>
         
         <div class="container">
             <div class="content">
-                <h2>Welcome to ElderCare Pro</h2>
+                <h2>Welcome to Elderly Care Pro</h2>
                 <p>Our mission is to provide compassionate and comprehensive care to seniors, ensuring their well-being and enhancing their quality of life. Our dedicated team of caregivers is committed to supporting your loved ones with the highest level of care</p>
             </div>
     
