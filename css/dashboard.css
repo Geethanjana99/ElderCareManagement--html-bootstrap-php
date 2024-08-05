@@ -1,12 +1,11 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    background-color: #bcbeae;
 }
 
 .sidebar {
     background-color: grey;
     height: 100vh;
-    
 }
 
 .sidebar .nav-link {
@@ -29,3 +28,11 @@ body {
 .card .card-title {
     color: #007bff;
 }
+
+/* Add margin to the buttons */
+.btn-group .btn {
+    margin-right: 10px; /* Adjust the value as needed */
+}
+
+
+
