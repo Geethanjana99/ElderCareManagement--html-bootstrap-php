@@ -17,6 +17,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .sidelink1 {
+            background-color: darkcyan;
+        }
+        </style>
 </head>
 
 <body>
@@ -27,13 +33,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="dashboard.php">Dashboard</a>
+                            <a class="nav-link" href="dashboard.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="users.php">Registered Elders</a>
+                            <a class="nav-link" href="users.php">Elders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admins.php">Registered admins</a>
+                            <a class="nav-link sidelink1" href="admins.php">Admins</a>
                         </li>
                     </ul>
                 </div>

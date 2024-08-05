@@ -20,9 +20,15 @@ require 'Backend/get_count.php'; // Adjust path as necessary
     <title>Dashboard - Elderly Care Management System</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/navigation.css">
 
     <style>
+        .sidelink1 {
+            background-color: darkcyan;
+        }
+
+
         .buttonlog1 {
             font-weight: bold;
             color: black;
@@ -43,12 +49,13 @@ require 'Backend/get_count.php'; // Adjust path as necessary
             transform: scale(1.05);
             transition: transform 0.3s ease-in-out;
         }
+
         .cardtitle {
             color: white;
             font-size: 1.5rem;
         }
 
-        .moreinfo{
+        .moreinfo {
             background-color: darkcyan;
         }
     </style>
@@ -63,13 +70,13 @@ require 'Backend/get_count.php'; // Adjust path as necessary
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="dashboard.php">Dashboard</a>
+                            <a class="nav-link sidelink1" href="dashboard.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="users.php">Registered Elders</a>
+                            <a class="nav-link sidelink" href="users.php">Elders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admins.php">Registered admins</a>
+                            <a class="nav-link sidelink" href="admins.php">Admins</a>
                         </li>
                     </ul>
                 </div>
