@@ -44,6 +44,7 @@ require 'Backend/get_count.php'; // Adjust path as necessary
                     <h1 class="h2">Dashboard</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#registerModal">Register User</button>
                             <a href="Backend/logout.php" class="btn btn-sm btn-outline-secondary">LogOut</a>
                         </div>
                     </div>
@@ -68,9 +69,52 @@ require 'Backend/get_count.php'; // Adjust path as necessary
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </main>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="Backend/register.backend.php" method="post">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nic">NIC:</label>
+                            <input type="text" class="form-control" id="nic" name="nic" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="number" class="form-control" id="age" name="age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactno">Contact Number:</label>
+                            <input type="text" class="form-control" id="contactno" name="contactno" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-username">Username:</label>
+                            <input type="text" class="form-control" id="reg-username" name="reg-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password">Password:</label>
+                            <input type="password" class="form-control" id="reg-password" name="reg-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+                
+            </div>
         </div>
     </div>
 

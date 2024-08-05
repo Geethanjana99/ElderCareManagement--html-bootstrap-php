@@ -1,15 +1,16 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #bcbeae;
 }
 .container {
     width: 90%;
     margin: auto;
     overflow: hidden;
     padding: 20px;
+    
 }
 header {
     background-color: #00796b;

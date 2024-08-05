@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    
     if (empty($name) || empty($nic) || empty($age) || empty($contactno) || empty($username) || empty($password)) {
-        header("Location: login.php?error=All fields are required");
+        header("Location: ../src/login.php?error=All fields are required");
         exit;
     }
 
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':username', $username);
         $stmt->execute();
         if ($stmt->fetch(PDO::FETCH_ASSOC)) {
-            header("Location: login.php?error=Username already taken");
+            header("Location: ../src/login.php?error=Username already taken");
             exit;
         }
 
@@ -42,11 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
             
-            header("Location: login.php?success=Registration successful. Please log in.");
+            header("Location: ../src/login.php?success=Registration successful. Please log in.");
             exit;
         } else {
             
-            header("Location: login.php?error=Registration failed");
+            header("Location: ../src/login.php?error=Registration failed");
             exit;
         }
     } catch (PDOException $e) {
