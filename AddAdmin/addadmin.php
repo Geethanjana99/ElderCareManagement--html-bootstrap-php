@@ -22,7 +22,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #bcbeae;
             margin: 0;
         }
         .form-container {
@@ -58,7 +58,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 </head>
 <body>
     <div class="form-container">
-        <h2>Add Admin</h2>
+        <h2 style="color: #004d40;">Add Admin</h2>
         <form action="process_admin.php" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>

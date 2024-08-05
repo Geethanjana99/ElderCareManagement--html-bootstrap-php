@@ -21,7 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':password', $hashedPassword);
         $stmt->execute();
 
-        header("Location: ../dashboard.php");
+        // Redirect with a success message
+        header("Location: ../dashboard.php?success=1");
         exit;
     } catch (PDOException $e) {
         echo "Error adding user: " . $e->getMessage();

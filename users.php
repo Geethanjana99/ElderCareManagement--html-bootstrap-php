@@ -9,6 +9,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <?php include 'Components/navigation.php'; ?>
     <div class="container-fluid">
@@ -25,21 +27,26 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.php">Dashboard</a>
+                            <a class="nav-link active" href="dashboard.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Registered Elders</a>
+                            <a class="nav-link" href="users.php">Registered Elders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admins.php">Registered admins</a>
                         </li>
                     </ul>
                 </div>
             </nav>
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Registered Elders</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#registerModal">Register User</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal"
+                                data-target="#registerModal">Register User</button>
                             <a href="Backend/logout.php" class="btn btn-sm btn-outline-secondary">LogOut</a>
                         </div>
                     </div>
@@ -60,10 +67,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             <?php
                             // Include the fetch data script
                             require 'Backend/fetch_data.php'; // Adjust path as necessary
-
+                            
                             if (!empty($result)) {
                                 foreach ($result as $row) {
-                                    echo "<tr><td>" . htmlspecialchars($row["id"]). "</td><td>" . htmlspecialchars($row["name"]). "</td><td>" . htmlspecialchars($row["nic"]). "</td><td>" . htmlspecialchars($row["age"]). "</td><td>" . htmlspecialchars($row["contactno"]). "</td></tr>";
+                                    echo "<tr><td>" . htmlspecialchars($row["id"]) . "</td><td>" . htmlspecialchars($row["name"]) . "</td><td>" . htmlspecialchars($row["nic"]) . "</td><td>" . htmlspecialchars($row["age"]) . "</td><td>" . htmlspecialchars($row["contactno"]) . "</td></tr>";
                                 }
                             } else {
                                 echo "<tr><td colspan='5'>No records found</td></tr>";
@@ -77,7 +84,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </div>
 
     <!-- Registration Modal -->
-    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -116,7 +124,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </form>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -126,4 +134,5 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <?php include 'Components/footer.php'; ?>
 </body>
+
 </html>
