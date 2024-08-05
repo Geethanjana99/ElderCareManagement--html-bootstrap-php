@@ -45,6 +45,7 @@ require 'Backend/get_count.php'; // Adjust path as necessary
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#registerModal">Register User</button>
+                            <a href="AddAdmin/addadmin.php" class="btn btn-sm btn-outline-secondary">Add Admin</a>
                             <a href="Backend/logout.php" class="btn btn-sm btn-outline-secondary">LogOut</a>
                         </div>
                     </div>
@@ -102,18 +103,10 @@ require 'Backend/get_count.php'; // Adjust path as necessary
                             <label for="contactno">Contact Number:</label>
                             <input type="text" class="form-control" id="contactno" name="contactno" required>
                         </div>
-                        <div class="form-group">
-                            <label for="reg-username">Username:</label>
-                            <input type="text" class="form-control" id="reg-username" name="reg-username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reg-password">Password:</label>
-                            <input type="password" class="form-control" id="reg-password" name="reg-password" required>
-                        </div>
+                        <!-- Removed Username and Password fields -->
                         <button type="submit" class="btn btn-primary">Register</button>
                     </form>
                 </div>
-                
             </div>
         </div>
     </div>

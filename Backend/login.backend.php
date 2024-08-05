@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         // Prepare SQL statement to prevent SQL injection
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+        $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = :username");
         $stmt->bindParam(':username', $username);
         $stmt->execute();
 

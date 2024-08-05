@@ -116,7 +116,7 @@
                 <h3 style="font-size: 1.8rem; margin-bottom: 15px;">We're Here to Help</h3>
                 <p style="font-size: 1rem; line-height: 1.6; text-align: center;">If you have any questions or need more information about our services, please don't hesitate to contact us. We're here to assist you and provide the support you need.</p>
                 <p><strong>Email:</strong> info@elderlycare.com</p>
-                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>Phone:</strong> 077 1234567</p>
             </div>
         </div>
     </section>
