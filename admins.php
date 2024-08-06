@@ -22,7 +22,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         .sidelink1 {
             background-color: darkcyan;
         }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -51,8 +51,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <h1 class="h2">Registered Elders</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal"
-                                data-target="#registerModal">Register User</button>
+                            <a href="AddAdmin/addadmin.php" class="btn btn-sm btn-outline-secondary">Register Admin</a>
                             <a href="Backend/logout.php" class="btn btn-sm btn-outline-secondary">LogOut</a>
                         </div>
                     </div>
@@ -69,12 +68,22 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         </thead>
                         <tbody>
                             <?php
-                            // Include the fetch data script
-                            require 'Backend/fetch_data.php'; // Adjust path as necessary
-                            
+
+                            require 'Backend/fetch_data.php';
+
                             if (!empty($result1)) {
                                 foreach ($result1 as $row) {
-                                    echo "<tr><td>" . htmlspecialchars($row["id"]) . "</td><td>" . htmlspecialchars($row["username"]) . "</td><td>" . htmlspecialchars($row["created_at"]) . "</td></tr>";
+                                    echo "<tr>";
+                                    echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
+                                    echo "<td>";
+                                    echo "<form action='Backend/delete_admin.php' method='post' style='display:inline;'>";
+                                    echo "<input type='hidden' name='id' value='" . htmlspecialchars($row["id"]) . "'>";
+                                    echo "<button type='submit' class='btn btn-sm btn-outline-danger'>Delete</button>";
+                                    echo "</form>";
+                                    echo "</td>";
+                                    echo "</tr>";
                                 }
                             } else {
                                 echo "<tr><td colspan='5'>No records found</td></tr>";
@@ -87,51 +96,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </div>
 
-    <!-- Registration Modal -->
-    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registerModalLabel">Register User</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="Backend/register.backend.php" method="post">
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="nic">NIC:</label>
-                            <input type="text" class="form-control" id="nic" name="nic" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="age">Age:</label>
-                            <input type="number" class="form-control" id="age" name="age" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contactno">Contact Number:</label>
-                            <input type="text" class="form-control" id="contactno" name="contactno" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reg-username">Username:</label>
-                            <input type="text" class="form-control" id="reg-username" name="reg-username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reg-password">Password:</label>
-                            <input type="password" class="form-control" id="reg-password" name="reg-password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Register</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
