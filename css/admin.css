@@ -1,0 +1,110 @@
+:root {
+    --primary-color: #004d40;
+    --primary-color-hover: #00332c;
+    --secondary-color: #333;
+    --background-color: #bcbeae;
+    --form-background-color: white;
+    --border-color: #ccc;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px; /* Add padding to the container */
+}
+
+.card {
+    display: flex;
+    background: var(--form-background-color);
+    width: 60%;
+    padding: 2%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card img {
+    width: 50%;
+    object-fit: cover;
+    border-radius: 8px; /* Curved borders */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 3D effect */
+    transform: translateZ(0); /* 3D effect */
+    transition: transform 0.3s; /* Smooth transition */
+}
+
+.card img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.card .form-container {
+    padding: 40px 20px; /* Add more padding */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Add gap between elements */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    margin-top: 10px;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 77, 64, 0.5);
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--primary-color-hover);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}

@@ -51,7 +51,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <h1 class="h2">Registered Elders</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
-                            <a href="AddAdmin/addadmin.php" class="btn btn-sm btn-outline-secondary">Register Admin</a>
+                            <a href="addadmin.php" class="btn btn-sm btn-outline-secondary">Register Admin</a>
                             <a href="Backend/logout.php" class="btn btn-sm btn-outline-secondary">LogOut</a>
                         </div>
                     </div>
