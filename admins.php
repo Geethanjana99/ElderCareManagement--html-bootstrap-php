@@ -22,7 +22,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         .sidelink1 {
             background-color: darkcyan;
         }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -69,12 +69,22 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         </thead>
                         <tbody>
                             <?php
-                            // Include the fetch data script
-                            require 'Backend/fetch_data.php'; // Adjust path as necessary
-                            
+
+                            require 'Backend/fetch_data.php';
+
                             if (!empty($result1)) {
                                 foreach ($result1 as $row) {
-                                    echo "<tr><td>" . htmlspecialchars($row["id"]) . "</td><td>" . htmlspecialchars($row["username"]) . "</td><td>" . htmlspecialchars($row["created_at"]) . "</td></tr>";
+                                    echo "<tr>";
+                                    echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
+                                    echo "<td>";
+                                    echo "<form action='Backend/delete_admin.php' method='post' style='display:inline;'>";
+                                    echo "<input type='hidden' name='id' value='" . htmlspecialchars($row["id"]) . "'>";
+                                    echo "<button type='submit' class='btn btn-sm btn-outline-danger'>Delete</button>";
+                                    echo "</form>";
+                                    echo "</td>";
+                                    echo "</tr>";
                                 }
                             } else {
                                 echo "<tr><td colspan='5'>No records found</td></tr>";
