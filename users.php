@@ -22,8 +22,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         .sidelink1 {
             background-color: darkcyan;
         }
-
-        </style>
+    </style>
 </head>
 
 <body>
@@ -39,7 +38,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         <li class="nav-item">
                             <a class="nav-link sidelink1" href="users.php">Elders</a>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a class="nav-link" href="admins.php">Admins</a>
                         </li>
                     </ul>
@@ -47,13 +46,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             </nav>
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Registered Elders</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal"
-                                data-target="#registerModal">Register User</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#registerModal">Register User</button>
                             <a href="Backend/logout.php" class="btn btn-sm btn-outline-secondary">LogOut</a>
                         </div>
                     </div>
@@ -68,6 +65,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                 <th>NIC</th>
                                 <th>Age</th>
                                 <th>Contact Number</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,10 +75,22 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             
                             if (!empty($result)) {
                                 foreach ($result as $row) {
-                                    echo "<tr><td>" . htmlspecialchars($row["id"]) . "</td><td>" . htmlspecialchars($row["name"]) . "</td><td>" . htmlspecialchars($row["nic"]) . "</td><td>" . htmlspecialchars($row["age"]) . "</td><td>" . htmlspecialchars($row["contactno"]) . "</td></tr>";
+                                    echo "<tr>";
+                                    echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row["nic"]) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row["age"]) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row["contactno"]) . "</td>";
+                                    echo "<td>";
+                                    echo "<form action='Backend/delete_user.php' method='post' style='display:inline;' onsubmit='return confirmDelete();'>";
+                                    echo "<input type='hidden' name='id' value='" . htmlspecialchars($row["id"]) . "'>";
+                                    echo "<button type='submit' class='btn btn-sm btn-outline-danger'>Delete</button>";
+                                    echo "</form>";
+                                    echo "</td>";
+                                    echo "</tr>";
                                 }
                             } else {
-                                echo "<tr><td colspan='5'>No records found</td></tr>";
+                                echo "<tr><td colspan='6'>No records found</td></tr>";
                             }
                             ?>
                         </tbody>
@@ -90,9 +100,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </div>
 
-    <!-- Registration Modal -->
-    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -119,19 +127,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             <label for="contactno">Contact Number:</label>
                             <input type="text" class="form-control" id="contactno" name="contactno" required>
                         </div>
-                        <div class="form-group">
-                            <label for="reg-username">Username:</label>
-                            <input type="text" class="form-control" id="reg-username" name="reg-username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reg-password">Password:</label>
-                            <input type="password" class="form-control" id="reg-password" name="reg-password" required>
-                        </div>
                         <button type="submit" class="btn btn-primary">Register</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
@@ -140,6 +138,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <?php include 'Components/footer.php'; ?>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this user?');
+        }
+    </script>
 </body>
 
 </html>

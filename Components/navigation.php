@@ -3,6 +3,7 @@
     <div class="header-content">
         <div class="logo">
             <img src="images/elderly.png" alt="Logo">
+            
         </div>
         <h1 class="site-title">Elderly Care Pro</h1>
     </div>

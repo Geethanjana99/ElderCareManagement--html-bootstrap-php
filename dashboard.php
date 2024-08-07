@@ -90,7 +90,7 @@ require 'Backend/get_count.php'; // Adjust path as necessary
                         <div class="btn-group mr-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary buttonlog1"
                                 data-toggle="modal" data-target="#registerModal">Register User</button>
-                            <a href="AddAdmin/addadmin.php" class="btn btn-sm btn-outline-secondary buttonlog1">Add
+                            <a href="addadmin.php" class="btn btn-sm btn-outline-secondary buttonlog1">Add
                                 Admin</a>
                             <a href="Backend/logout.php" class="btn btn-sm btn-outline-secondary buttonlog1">LogOut</a>
                         </div>
@@ -166,6 +166,8 @@ require 'Backend/get_count.php'; // Adjust path as necessary
             </div>
         </div>
     </div>
+
+    <?php include 'Components/footer.php'; ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
