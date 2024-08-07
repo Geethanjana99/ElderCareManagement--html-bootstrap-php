@@ -78,6 +78,9 @@ require 'Backend/get_count.php'; // Adjust path as necessary
                         <li class="nav-item">
                             <a class="nav-link sidelink" href="admins.php">Admins</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link sidelink" href="admins.php">ABC</a>
+                        </li>
                     </ul>
                 </div>
             </nav>

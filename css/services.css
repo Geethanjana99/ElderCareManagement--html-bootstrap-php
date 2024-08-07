@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #bcbeae;
+    
 }
 .container {
     width: 90%;
@@ -44,12 +45,12 @@ body {
     text-align: center;
 }
 .service-item img {
-    width: 150px; /* Increased width */
-    height: 150px; /* Increased height */
-    border-radius: 15%; /* Reduced border radius for better visibility */
+    width: 150px; 
+    height: 150px;
+    border-radius: 15%;
     margin-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for better visibility */
-    object-fit: cover; /* Ensures the image covers the entire area */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    object-fit: cover; 
 }
 
 .service-item h3 {
