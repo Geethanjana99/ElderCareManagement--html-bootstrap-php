@@ -82,7 +82,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                     echo "<td>" . htmlspecialchars($row["age"]) . "</td>";
                                     echo "<td>" . htmlspecialchars($row["contactno"]) . "</td>";
                                     echo "<td>";
-                                    echo "<form action='Backend/delete_user.php' method='post' style='display:inline;'>";
+                                    echo "<form action='Backend/delete_user.php' method='post' style='display:inline;' onsubmit='return confirmDelete();'>";
                                     echo "<input type='hidden' name='id' value='" . htmlspecialchars($row["id"]) . "'>";
                                     echo "<button type='submit' class='btn btn-sm btn-outline-danger'>Delete</button>";
                                     echo "</form>";
@@ -100,8 +100,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </div>
 
-    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -128,7 +127,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             <label for="contactno">Contact Number:</label>
                             <input type="text" class="form-control" id="contactno" name="contactno" required>
                         </div>
-                        <!-- Removed Username and Password fields -->
                         <button type="submit" class="btn btn-primary">Register</button>
                     </form>
                 </div>
@@ -140,6 +138,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <?php include 'Components/footer.php'; ?>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this user?');
+        }
+    </script>
 </body>
 
 </html>

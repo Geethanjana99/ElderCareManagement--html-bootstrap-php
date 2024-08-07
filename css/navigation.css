@@ -1,40 +1,58 @@
-/* Navigation Styles 00796b */
+/* Navigation Styles */
+:root {
+    --primary-color: #004d40;
+    --primary-color-hover: #00332c;
+    --secondary-color: #333;
+    --background-color: #bcbeae;
+    --form-background-color: white;
+    --border-color: #ccc;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+}
+
 .site-header {
-    background-color: #004d40;
+    background-color: var(--primary-color);
     margin-bottom: 5px;
     border-radius: 0 0 8px 8px;
     color: white;
-    padding: 10px 20px; /* Adjust padding */
+    padding: 10px 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center-align the header content */
+    align-items: center;
 }
 
 .header-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%; /* Ensure it spans the full width */
-    max-width: 1200px; /* Optional: limit max width */
+    width: 100%;
+    max-width: 1200px;
 }
 
 .logo img {
-    height: 50px; /* Adjust height as needed */
-    width: auto;  /* Maintain aspect ratio */
-    margin-right: 15px; /* Space between logo and title */
+    height: 50px;
+    width: auto;
+    margin-right: 15px;
 }
 
 .site-title {
     margin: 0;
-    font-size: 24px; /* Adjust font size */
-    color: white; /* Ensure text color contrasts with background */
+    font-size: 24px;
+    color: white;
 }
 
 .main-nav {
     margin: 0;
     padding: 0;
     width: 80%;
-    margin-top: 10px; /* Space between title and navigation */
+    margin-top: 10px;
 }
 
 .nav-list {
@@ -43,7 +61,7 @@
     margin: 0;
     display: flex;
     justify-content: center;
-    background-color: #bcbeae;
+    background-color: var(--background-color);
     border-radius: 8px;
 }
 
@@ -51,16 +69,15 @@
     margin: 0 15px;
 }
 
-/* Navigation Styles */
 .nav-link {
-    color: #004d40;
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 20px;
     font-weight: 500;
     padding: 10px 20px;
     display: block;
-    position: relative; /* Required for positioning the pseudo-element */
-    overflow: hidden; /* Ensures the pseudo-element stays within the link */
+    position: relative;
+    overflow: hidden;
 }
 
 .nav-link::after {
@@ -69,25 +86,69 @@
     bottom: 0;
     left: 50%;
     width: 0;
-    height: 2px; /* Adjust the thickness of the underline */
-    background-color: #004d40; /* Color of the underline */
-    transition: width 0.5s ease, left 0.7s ease; 
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.5s ease, left 0.7s ease;
 }
 
 .nav-link:hover::after {
-    width: 100%; 
-    left: 0; 
+    width: 100%;
+    left: 0;
 }
 
-
-
-
 footer {
-    background-color: #004d40;
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
     padding: 10px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo img {
+        height: 40px;
+        margin: 0 0 10px 0;
+    }
+
+    .site-title {
+        font-size: 20px;
+    }
+
+    .main-nav {
+        width: 100%;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        background-color: transparent;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+
+    .nav-link {
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 18px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+        padding: 8px;
+    }
 }

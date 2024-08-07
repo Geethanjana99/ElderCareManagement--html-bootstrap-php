@@ -13,7 +13,7 @@
         <div class="container">
             <div class="content">
                 <h2>Welcome to Elderly Care Pro</h2>
-                <p>Our mission is to provide compassionate and comprehensive care to seniors, ensuring their well-being and enhancing their quality of life. Our dedicated team of caregivers is committed to supporting your loved ones with the highest level of care</p>
+                <p>Our mission is to provide compassionate and comprehensive care to seniors, ensuring their well-being and enhancing their quality of life. Our dedicated team of caregivers is committed to supporting your loved ones with the highest level of care.</p>
             </div>
     
             <div class="services">

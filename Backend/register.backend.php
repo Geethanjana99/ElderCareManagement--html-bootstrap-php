@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
 
-            header("Location: ../dashboard.php?success=Registration successful. Please log in.");
+            header("Location: ../users.php?success=Registration successful. Please log in.");
             exit;
         } else {
 

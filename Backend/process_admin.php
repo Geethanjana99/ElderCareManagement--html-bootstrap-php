@@ -5,9 +5,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve and sanitize user input
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    $confirm_password = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING);
 
-    if (empty($username) || empty($password)) {
-        echo "Username and password are required.";
+    if (empty($username) || empty($password) || empty($confirm_password)) {
+        echo "All fields are required.";
+        exit;
+    }
+
+    if ($password !== $confirm_password) {
+        echo "Passwords do not match.";
         exit;
     }
 
@@ -22,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
 
         // Redirect with a success message
-        header("Location: ../dashboard.php?success=1");
+        header("Location: ../admins.php?success=1");
         exit;
     } catch (PDOException $e) {
         echo "Error adding user: " . $e->getMessage();

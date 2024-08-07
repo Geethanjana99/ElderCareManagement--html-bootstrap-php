@@ -46,8 +46,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             </nav>
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Registered Elders</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
@@ -78,7 +77,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                     echo "<td>" . htmlspecialchars($row["username"]) . "</td>";
                                     echo "<td>" . htmlspecialchars($row["created_at"]) . "</td>";
                                     echo "<td>";
-                                    echo "<form action='Backend/delete_admin.php' method='post' style='display:inline;'>";
+                                    echo "<form action='Backend/delete_admin.php' method='post' style='display:inline;' onsubmit='return confirmDelete();'>";
                                     echo "<input type='hidden' name='id' value='" . htmlspecialchars($row["id"]) . "'>";
                                     echo "<button type='submit' class='btn btn-sm btn-outline-danger'>Delete</button>";
                                     echo "</form>";
@@ -96,11 +95,16 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </div>
 
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <?php include 'Components/footer.php'; ?>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this admin?');
+        }
+    </script>
 </body>
 
 </html>
