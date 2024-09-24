@@ -1,10 +1,10 @@
 <?php
 
-$hostname = 'lecturescheduling-lecture-scheduling-sys.d.aivencloud.com';
-$port = 24221;
-$username = 'avnadmin';
-$password = 'AVNS_Qt9o2_UyDOQ3seab3Qe';
-$database = 'eldercare';
+$hostname = '';
+$port = ;
+$username = '';
+$password = '';
+$database = '';
 
 
 $dsn = "mysql:host=$hostname;port=$port;dbname=$database;charset=utf8mb4";
